@@ -55,6 +55,13 @@ not maintained anymore but it still works (hopefully) if you want to use it or b
 
 ---
 
+## advent of code
+
+<!-- aoc-badges-start -->
+<!-- aoc-badges-end -->
+
+---
+
 ## contact
 
 if you want to ask about something ive built or just curious how it works  
