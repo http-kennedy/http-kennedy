@@ -1,0 +1,57 @@
+name: update advent of code badges
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # daily at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    env:
+      AOC_SESSION: ${{ secrets.AOC_SESSION }}
+      AOC_UID: ${{ secrets.AOC_UID }}
+
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+
+      - name: set up python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: install requests
+        run: pip install requests
+
+      - name: generate badge markdown
+        run: |
+          python .github/scripts/aoc_stars.py > badges.tmp
+
+      - name: update readme
+        run: |
+          awk '
+            BEGIN { inside=0 }
+            /<!-- aoc-badges-start -->/ { print; print_badges=1; inside=1; next }
+            /<!-- aoc-badges-end -->/ {
+              if (print_badges) {
+                while ((getline line < "badges.tmp") > 0) print line
+                print_badges=0
+              }
+              inside=0
+              print
+              next
+            }
+            !inside { print }
+          ' README.md > README.new
+
+          mv README.new README.md
+
+      - name: commit and push
+        run: |
+          git config user.name "aoc-bot"
+          git config user.email "actions@github.com"
+          git add README.md
+          git commit -m "update advent of code badges" || echo "no changes"
+          git push
+
