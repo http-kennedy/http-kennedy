@@ -28,10 +28,20 @@
 
 ### dev-template
 
-tool i made to kickstart python projects  
-it handled the repetitive parts like folder structure config files and setup scripts  
+quickly scaffold python projects  
+designed to skip the bloat and get straight to coding
 
-its no longer maintained but still out there if you wanna check it out  
+sets up a basic project structure with dirs like `src`, `tests`, and optional config files like `pyproject.toml`
+
+supports:
+- simple config to set defaults like base path or template location
+- interactive prompts with path autocomplete
+- automatic venv creation and package install
+- drop-in templates you can customize
+
+design was inspired by always repeating the same setup steps just to write a small script  
+wanted something fast and local to keep my projects organized without thinking too much  
+not maintained anymore but it still works (hopefully) if you want to use it or borrow ideas
 
 [![pypi total downloads](https://static.pepy.tech/badge/dev-template)](https://pepy.tech/projects/dev-template)  
 [![pypi downloads](https://img.shields.io/pypi/dm/dev-template?color=ff79c6&label=downloads)](https://pypi.org/project/dev-template)  
