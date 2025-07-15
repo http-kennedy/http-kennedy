@@ -18,11 +18,11 @@ def _dracula_tiered_color(stars: int) -> str:
     stars = max(0, min(50, stars))
 
     if stars <= 16:
-        return "fefcbf"
+        return "fff779"
     elif stars <= 33:
-        return "ffcce5"
+        return "ffaad4"
     else:
-        return "e2d7fc"
+        return "d6b5ff"
 
 
 def _require_env(key: str) -> str:
