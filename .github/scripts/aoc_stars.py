@@ -19,11 +19,11 @@ def _dracula_tiered_color(stars: int) -> str:
     stars = max(0, min(50, stars))
 
     if stars <= 10:
-        h, s, v = 60 / 360, 1.0, 0.7 + 0.3 * (stars / 10)
+        h, s, v = 60 / 360, 1.0, 0.85 + 0.15 * (stars / 10)
     elif stars <= 30:
-        h, s, v = 335 / 360, 0.6 + 0.4 * ((stars - 10) / 20), 0.8
+        h, s, v = 335 / 360, 0.6 + 0.4 * ((stars - 10) / 20), 0.9
     else:
-        h, s, v = 265 / 360, 0.6 + 0.4 * ((stars - 30) / 20), 0.7 + 0.3 * ((stars - 30) / 20)
+        h, s, v = 265 / 360, 0.6 + 0.4 * ((stars - 30) / 20), 0.85 + 0.15 * ((stars - 30) / 20)
 
     return _rgb_to_hex(*colorsys.hsv_to_rgb(h, s, v))
 
