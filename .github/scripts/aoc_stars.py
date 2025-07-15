@@ -14,18 +14,15 @@ def _rgb_to_hex(r: float, g: float, b: float) -> str:
     to_255 = lambda x: max(0, min(255, round(x * 255)))
     return f"{to_255(r):02x}{to_255(g):02x}{to_255(b):02x}"
 
-
 def _dracula_tiered_color(stars: int) -> str:
     stars = max(0, min(50, stars))
 
-    if stars <= 10:
-        h, s, v = 60 / 360, 1.0, 0.85 + 0.15 * (stars / 10)
-    elif stars <= 30:
-        h, s, v = 335 / 360, 0.6 + 0.4 * ((stars - 10) / 20), 0.9
+    if stars <= 16:
+        return "fefcbf"
+    elif stars <= 33:
+        return "ffcce5"
     else:
-        h, s, v = 265 / 360, 0.6 + 0.4 * ((stars - 30) / 20), 0.85 + 0.15 * ((stars - 30) / 20)
-
-    return _rgb_to_hex(*colorsys.hsv_to_rgb(h, s, v))
+        return "e2d7fc"
 
 
 def _require_env(key: str) -> str:
