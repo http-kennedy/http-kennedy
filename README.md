@@ -26,7 +26,12 @@
 
 ---
 
+
 ## claim to fame
+
+placed **3rd** in the SANS Capture the Flag @ [BSides Charm 2025](https://www.bsidescharm.org/)
+
+---
 
 ### dev-template
 
