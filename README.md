@@ -12,6 +12,8 @@
 ![package manager uv](https://img.shields.io/badge/package%20manager-uv-bd93f9)
 ![editor zed](https://img.shields.io/badge/editor-zed-ff79c6)
 ![machine m1 mac](https://img.shields.io/badge/machine-m1%20mac%20air-f1fa8c)
+![machine m4 mac](https://img.shields.io/badge/machine-m4%20mac%20mini-f1fa8c)
+
 
 ---
 
