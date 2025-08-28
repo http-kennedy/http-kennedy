@@ -2,15 +2,19 @@ name: update advent of code badges
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # daily at midnight UTC
+    - cron: '0 0 * * *'   # daily at midnight UTC
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     env:
       AOC_SESSION: ${{ secrets.AOC_SESSION }}
-      AOC_UID: ${{ secrets.AOC_UID }}
+      AOC_LEADERBOARD_ID: ${{ secrets.AOC_LEADERBOARD_ID }}
+      AOC_CONTACT: ${{ vars.AOC_CONTACT }}
 
     steps:
       - name: checkout repo
@@ -19,14 +23,19 @@ jobs:
       - name: set up python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.x
+          python-version: '3.x'
 
       - name: install requests
         run: pip install requests
 
-      - name: generate badge markdown
+      - name: sanity-check envs
         run: |
-          python .github/scripts/aoc_stars.py > badges.tmp
+          for k in AOC_SESSION AOC_LEADERBOARD_ID AOC_MEMBER_ID AOC_CONTACT; do
+            echo "$k set? -> ${!k:+yes}"
+          done
+
+      - name: generate badge markdown
+        run: python .github/scripts/aoc_stars.py > badges.tmp
 
       - name: update readme
         run: |
@@ -44,7 +53,6 @@ jobs:
             }
             !inside { print }
           ' README.md > README.new
-
           mv README.new README.md
 
       - name: commit and push
@@ -54,4 +62,3 @@ jobs:
           git add README.md
           git commit -m "update advent of code badges" || echo "no changes"
           git push
-
