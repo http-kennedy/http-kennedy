@@ -14,7 +14,6 @@
 ![machine m1 mac](https://img.shields.io/badge/machine-m1%20mac%20air-f1fa8c)
 ![machine m4 mac](https://img.shields.io/badge/machine-m4%20mac%20mini-f1fa8c)
 
-
 ---
 
 ## philosophy
@@ -26,14 +25,16 @@
 
 ---
 
-
 ## claim to fame
 
-placed **3rd** in the SANS Capture the Flag @ [BSides Charm 2025](https://www.bsidescharm.org/)
+- placed **3rd** in the SANS Capture the Flag @ [BSides Charm 2025](https://www.bsidescharm.org/)
+- placed **19th** in the Huntress Capture the Flag @ [Huntress CTF 2025](https://ctf.huntress.com/)
 
 ---
 
 ### dev-template
+
+**please consider using [UV](https://docs.astral.sh/uv/) or [copier](https://copier.readthedocs.io/en/stable/) instead as they're better tools**
 
 quickly scaffold python projects  
 designed to skip the bloat and get straight to coding
@@ -41,6 +42,7 @@ designed to skip the bloat and get straight to coding
 sets up a basic project structure with dirs like `src`, `tests`, and optional config files like `pyproject.toml`
 
 supports:
+
 - simple config to set defaults like base path or template location
 - interactive prompts with path autocomplete
 - automatic venv creation and package install
@@ -48,7 +50,6 @@ supports:
 
 design was inspired by always repeating the same setup steps just to write a small script  
 wanted something fast and local to keep my projects organized without thinking too much  
-not maintained anymore but it still works (hopefully) if you want to use it or borrow ideas
 
 [![pypi total downloads](https://static.pepy.tech/badge/dev-template)](https://pepy.tech/projects/dev-template)  
 [![pypi downloads](https://img.shields.io/pypi/dm/dev-template?color=ff79c6&label=downloads)](https://pypi.org/project/dev-template)  
