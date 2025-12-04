@@ -1,8 +1,7 @@
 # about me
 
 - hobbyist  
-- most of what i code is for my own use  
-- tools that just get the job done  
+- 99.42% of what i code is for my own use  
 
 ---
 
